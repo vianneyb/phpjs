@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: octopress | php.js]]></title>
-  <link href="http://kvz.github.com/phpjs/categories/octopress/atom.xml" rel="self"/>
-  <link href="http://kvz.github.com/phpjs/"/>
-  <updated>2012-10-18T12:55:46+02:00</updated>
-  <id>http://kvz.github.com/phpjs/</id>
+  <link href="http://phpjs.org/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://phpjs.org/"/>
+  <updated>2012-10-26T14:30:41+02:00</updated>
+  <id>http://phpjs.org/</id>
   <author>
     <name><![CDATA[Kevin van Zonneveld]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[New site]]></title>
-    <link href="http://kvz.github.com/phpjs/blog/2012/09/26/new-site/"/>
+    <link href="http://phpjs.org/blog/2012/09/26/new-site/"/>
     <updated>2012-09-26T17:39:00+02:00</updated>
-    <id>http://kvz.github.com/phpjs/blog/2012/09/26/new-site</id>
+    <id>http://phpjs.org/blog/2012/09/26/new-site</id>
     <content type="html"><![CDATA[<p>Hi everybody,</p>
 
 <p>Welcome to our new site.
