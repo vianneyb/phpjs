@@ -60,7 +60,10 @@
 </head>
 
 <body   class="no-sidebar"  >
-  <header role="banner"><hgroup>
+  <header role="banner"><a href="https://github.com/kvz/phpjs">
+  <img id="fork-us" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub">
+</a>
+<hgroup>
   <div id="logo">
   	<div id="logoLeft">{</div>
   	<div id="logoText">php</div>
@@ -69,7 +72,7 @@
   </div>
   <h1><a href="/">.js</a></h1>
   
-    <h2>A resource of php functions in JavsScript</h2>
+    <h2>A resource of php functions in JavaScript</h2>
   
   <div class="clear"></div>
 </hgroup>
@@ -245,58 +248,11 @@
 <span class='line-number'>129</span>
 <span class='line-number'>130</span>
 <span class='line-number'>131</span>
-<span class='line-number'>132</span>
-<span class='line-number'>133</span>
-<span class='line-number'>134</span>
-<span class='line-number'>135</span>
-<span class='line-number'>136</span>
-<span class='line-number'>137</span>
-<span class='line-number'>138</span>
-<span class='line-number'>139</span>
-<span class='line-number'>140</span>
-<span class='line-number'>141</span>
-<span class='line-number'>142</span>
-<span class='line-number'>143</span>
-<span class='line-number'>144</span>
-<span class='line-number'>145</span>
-<span class='line-number'>146</span>
-<span class='line-number'>147</span>
-<span class='line-number'>148</span>
-<span class='line-number'>149</span>
-<span class='line-number'>150</span>
-<span class='line-number'>151</span>
-<span class='line-number'>152</span>
-<span class='line-number'>153</span>
-<span class='line-number'>154</span>
-<span class='line-number'>155</span>
-<span class='line-number'>156</span>
-<span class='line-number'>157</span>
-<span class='line-number'>158</span>
-<span class='line-number'>159</span>
-<span class='line-number'>160</span>
-<span class='line-number'>161</span>
-<span class='line-number'>162</span>
-<span class='line-number'>163</span>
-<span class='line-number'>164</span>
-<span class='line-number'>165</span>
-<span class='line-number'>166</span>
-<span class='line-number'>167</span>
-<span class='line-number'>168</span>
-<span class='line-number'>169</span>
-<span class='line-number'>170</span>
-<span class='line-number'>171</span>
-<span class='line-number'>172</span>
-<span class='line-number'>173</span>
-<span class='line-number'>174</span>
-<span class='line-number'>175</span>
-<span class='line-number'>176</span>
-<span class='line-number'>177</span>
-<span class='line-number'>178</span>
-<span class='line-number'>179</span>
-<span class='line-number'>180</span>
-<span class='line-number'>181</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">strtotime</span> <span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">now</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="c1">// http://kevin.vanzonneveld.net</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">strtotime</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="nx">now</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">// Convert string representation of date and time to a timestamp  </span>
+</span><span class='line'>  <span class="c1">// </span>
+</span><span class='line'>  <span class="c1">// version: 1109.2015</span>
+</span><span class='line'>  <span class="c1">// discuss at: http://phpjs.org/functions/strtotime</span>
 </span><span class='line'>  <span class="c1">// +   original by: Caio Ariede (http://caioariede.com)</span>
 </span><span class='line'>  <span class="c1">// +   improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)</span>
 </span><span class='line'>  <span class="c1">// +      input by: David</span>
@@ -304,7 +260,7 @@
 </span><span class='line'>  <span class="c1">// +   improved by: Brett Zamir (http://brett-zamir.me)</span>
 </span><span class='line'>  <span class="c1">// +   bugfixed by: Wagner B. Soares</span>
 </span><span class='line'>  <span class="c1">// +   bugfixed by: Artur Tchernychev</span>
-</span><span class='line'>  <span class="c1">// +   input by: wookie</span>
+</span><span class='line'>  <span class="c1">// +   improved by: A. Matías Quezada (http://amatiasq.com)</span>
 </span><span class='line'>  <span class="c1">// %        note 1: Examples all have a fixed timestamp to prevent tests to fail because of variable time(zones)</span>
 </span><span class='line'>  <span class="c1">// *     example 1: strtotime(&#39;+1 day&#39;, 1129633200);</span>
 </span><span class='line'>  <span class="c1">// *     returns 1: 1129719600</span>
@@ -314,24 +270,35 @@
 </span><span class='line'>  <span class="c1">// *     returns 3: 1127041200</span>
 </span><span class='line'>  <span class="c1">// *     example 4: strtotime(&#39;2009-05-04 08:30:00&#39;);</span>
 </span><span class='line'>  <span class="c1">// *     returns 4: 1241418600</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">l</span><span class="p">,</span> <span class="nx">match</span><span class="p">,</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">parse</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">text</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="nx">str</span> <span class="o">=</span> <span class="p">(</span><span class="nx">str</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\s{2,}|^\s|\s$/g</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/[\t\r\n]/g</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);;</span> <span class="c1">// unecessary spaces and chars</span>
+</span><span class='line'>  <span class="c1">// Unecessary spaces</span>
+</span><span class='line'>  <span class="nx">text</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span>
+</span><span class='line'>      <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\s{2,}/g</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/[\t\r\n]/g</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">str</span> <span class="o">===</span> <span class="s1">&#39;now&#39;</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="nx">now</span> <span class="o">===</span> <span class="kc">null</span> <span class="o">||</span> <span class="nb">isNaN</span><span class="p">(</span><span class="nx">now</span><span class="p">)</span> <span class="o">?</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span> <span class="o">|</span> <span class="mi">0</span> <span class="o">:</span> <span class="nx">now</span> <span class="o">|</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">parse</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">str</span><span class="p">)))</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="nx">parse</span> <span class="o">/</span> <span class="mi">1000</span> <span class="o">|</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">now</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nx">now</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">now</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span> <span class="c1">// Accept PHP-style seconds</span>
-</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nx">now</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">parsed</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">text</span> <span class="o">===</span> <span class="s1">&#39;now&#39;</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">now</span> <span class="o">===</span> <span class="kc">null</span> <span class="o">||</span> <span class="nb">isNaN</span><span class="p">(</span><span class="nx">now</span><span class="p">)</span> <span class="o">?</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span> <span class="o">|</span> <span class="mi">0</span> <span class="o">:</span> <span class="nx">now</span> <span class="o">|</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">parse</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">text</span><span class="p">)))</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">parse</span> <span class="o">/</span> <span class="mi">1000</span> <span class="o">|</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">text</span> <span class="o">==</span> <span class="s1">&#39;now&#39;</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">return</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">;</span> <span class="c1">// Return seconds, not milli-seconds</span>
+</span><span class='line'>  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">parsed</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">text</span><span class="p">)))</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">parsed</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">match</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^(\d{2,4})-(\d{2})-(\d{2})(?:\s(\d{1,2}):(\d{2})(?::\d{2})?)?(?:\.(\d+)?)?$/</span><span class="p">);</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">match</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">year</span> <span class="o">=</span> <span class="nx">match</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">match</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">69</span> <span class="o">?</span> <span class="o">+</span><span class="nx">match</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2000</span> <span class="o">:</span> <span class="nx">match</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</span><span class='line'>      <span class="k">return</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">match</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">match</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+</span><span class='line'>          <span class="nx">match</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">||</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">match</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">||</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">match</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">||</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">match</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">||</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">;</span>
 </span><span class='line'>  <span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="nx">str</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">__is</span> <span class="o">=</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nx">day</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">date</span> <span class="o">=</span> <span class="nx">now</span> <span class="o">?</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">now</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">days</span> <span class="o">=</span> <span class="p">{</span>
 </span><span class='line'>      <span class="s1">&#39;sun&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
 </span><span class='line'>      <span class="s1">&#39;mon&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
 </span><span class='line'>      <span class="s1">&#39;tue&#39;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
@@ -339,142 +306,78 @@
 </span><span class='line'>      <span class="s1">&#39;thu&#39;</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
 </span><span class='line'>      <span class="s1">&#39;fri&#39;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
 </span><span class='line'>      <span class="s1">&#39;sat&#39;</span><span class="o">:</span> <span class="mi">6</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>    <span class="nx">mon</span><span class="o">:</span> <span class="p">[</span>
-</span><span class='line'>      <span class="s1">&#39;jan&#39;</span><span class="p">,</span>
-</span><span class='line'>      <span class="s1">&#39;feb&#39;</span><span class="p">,</span>
-</span><span class='line'>      <span class="s1">&#39;mar&#39;</span><span class="p">,</span>
-</span><span class='line'>      <span class="s1">&#39;apr&#39;</span><span class="p">,</span>
-</span><span class='line'>      <span class="s1">&#39;may&#39;</span><span class="p">,</span>
-</span><span class='line'>      <span class="s1">&#39;jun&#39;</span><span class="p">,</span>
-</span><span class='line'>      <span class="s1">&#39;jul&#39;</span><span class="p">,</span>
-</span><span class='line'>      <span class="s1">&#39;aug&#39;</span><span class="p">,</span>
-</span><span class='line'>      <span class="s1">&#39;sep&#39;</span><span class="p">,</span>
-</span><span class='line'>      <span class="s1">&#39;oct&#39;</span><span class="p">,</span>
-</span><span class='line'>      <span class="s1">&#39;nov&#39;</span><span class="p">,</span>
-</span><span class='line'>      <span class="s1">&#39;dec&#39;</span>
-</span><span class='line'>    <span class="p">]</span>
+</span><span class='line'>  <span class="p">};</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">ranges</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>      <span class="s1">&#39;yea&#39;</span><span class="o">:</span> <span class="s1">&#39;FullYear&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="s1">&#39;mon&#39;</span><span class="o">:</span> <span class="s1">&#39;Month&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="s1">&#39;day&#39;</span><span class="o">:</span> <span class="s1">&#39;Date&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="s1">&#39;hou&#39;</span><span class="o">:</span> <span class="s1">&#39;Hours&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="s1">&#39;min&#39;</span><span class="o">:</span> <span class="s1">&#39;Minutes&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="s1">&#39;sec&#39;</span><span class="o">:</span> <span class="s1">&#39;Seconds&#39;</span>
 </span><span class='line'>  <span class="p">};</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">process</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">ago</span> <span class="o">=</span> <span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="nx">m</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;ago&#39;</span><span class="p">);</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="p">(</span><span class="nx">num</span> <span class="o">=</span> <span class="nx">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;last&#39;</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nx">ago</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>  <span class="kd">function</span> <span class="nx">lastNext</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">range</span><span class="p">,</span> <span class="nx">modifier</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="nx">days</span><span class="p">[</span><span class="nx">range</span><span class="p">];</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="k">switch</span> <span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">case</span> <span class="s1">&#39;last&#39;</span><span class="o">:</span>
-</span><span class='line'>    <span class="k">case</span> <span class="s1">&#39;next&#39;</span><span class="o">:</span>
-</span><span class='line'>      <span class="k">switch</span> <span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="p">{</span>
-</span><span class='line'>      <span class="k">case</span> <span class="s1">&#39;yea&#39;</span><span class="o">:</span>
-</span><span class='line'>        <span class="nx">now</span><span class="p">.</span><span class="nx">setFullYear</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">()</span> <span class="o">+</span> <span class="nx">num</span><span class="p">);</span>
-</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>      <span class="k">case</span> <span class="s1">&#39;wee&#39;</span><span class="o">:</span>
-</span><span class='line'>        <span class="nx">now</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">+</span> <span class="p">(</span><span class="nx">num</span> <span class="o">*</span> <span class="mi">7</span><span class="p">));</span>
-</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>      <span class="k">case</span> <span class="s1">&#39;day&#39;</span><span class="o">:</span>
-</span><span class='line'>        <span class="nx">now</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">+</span> <span class="nx">num</span><span class="p">);</span>
-</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>      <span class="k">case</span> <span class="s1">&#39;hou&#39;</span><span class="o">:</span>
-</span><span class='line'>        <span class="nx">now</span><span class="p">.</span><span class="nx">setHours</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getHours</span><span class="p">()</span> <span class="o">+</span> <span class="nx">num</span><span class="p">);</span>
-</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>      <span class="k">case</span> <span class="s1">&#39;min&#39;</span><span class="o">:</span>
-</span><span class='line'>        <span class="nx">now</span><span class="p">.</span><span class="nx">setMinutes</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">()</span> <span class="o">+</span> <span class="nx">num</span><span class="p">);</span>
-</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>      <span class="k">case</span> <span class="s1">&#39;sec&#39;</span><span class="o">:</span>
-</span><span class='line'>        <span class="nx">now</span><span class="p">.</span><span class="nx">setSeconds</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getSeconds</span><span class="p">()</span> <span class="o">+</span> <span class="nx">num</span><span class="p">);</span>
-</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>      <span class="k">case</span> <span class="s1">&#39;mon&#39;</span><span class="o">:</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">===</span> <span class="s2">&quot;month&quot;</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>          <span class="nx">now</span><span class="p">.</span><span class="nx">setMonth</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span> <span class="o">+</span> <span class="nx">num</span><span class="p">);</span>
-</span><span class='line'>          <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="c1">// fall through</span>
-</span><span class='line'>      <span class="k">default</span><span class="o">:</span>
-</span><span class='line'>        <span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="nx">__is</span><span class="p">.</span><span class="nx">day</span><span class="p">[</span><span class="nx">m</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)];</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">day</span> <span class="o">!==</span> <span class="s1">&#39;undefined&#39;</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>          <span class="kd">var</span> <span class="nx">diff</span> <span class="o">=</span> <span class="nx">day</span> <span class="o">-</span> <span class="nx">now</span><span class="p">.</span><span class="nx">getDay</span><span class="p">();</span>
-</span><span class='line'>          <span class="k">if</span> <span class="p">(</span><span class="nx">diff</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>            <span class="nx">diff</span> <span class="o">=</span> <span class="mi">7</span> <span class="o">*</span> <span class="nx">num</span><span class="p">;</span>
-</span><span class='line'>          <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">diff</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;last&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nx">day</span><span class="p">)</span> <span class="o">!==</span> <span class="s1">&#39;undefined&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">diff</span> <span class="o">=</span> <span class="nx">day</span> <span class="o">-</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getDay</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="k">if</span> <span class="p">(</span><span class="nx">diff</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>              <span class="nx">diff</span> <span class="o">=</span> <span class="mi">7</span> <span class="o">*</span> <span class="nx">modifier</span><span class="p">;</span>
+</span><span class='line'>          <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">diff</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">type</span> <span class="o">===</span> <span class="s1">&#39;last&#39;</span><span class="p">)</span>
 </span><span class='line'>              <span class="nx">diff</span> <span class="o">-=</span> <span class="mi">7</span><span class="p">;</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;next&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">diff</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">type</span> <span class="o">===</span> <span class="s1">&#39;next&#39;</span><span class="p">)</span>
 </span><span class='line'>              <span class="nx">diff</span> <span class="o">+=</span> <span class="mi">7</span><span class="p">;</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>          <span class="p">}</span>
-</span><span class='line'>          <span class="nx">now</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">+</span> <span class="nx">diff</span><span class="p">);</span>
-</span><span class='line'>          <span class="nx">now</span><span class="p">.</span><span class="nx">setHours</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// when jumping to a specific last/previous day of week, PHP sets the time to 00:00:00</span>
-</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="nx">date</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="nx">date</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">+</span> <span class="nx">diff</span><span class="p">);</span>
 </span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>      <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="kd">function</span> <span class="nx">process</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">split</span> <span class="o">=</span> <span class="nx">val</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">);</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">type</span> <span class="o">=</span> <span class="nx">split</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">range</span> <span class="o">=</span> <span class="nx">split</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">typeIsNumber</span> <span class="o">=</span> <span class="sr">/\d+/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">type</span><span class="p">);</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="k">default</span><span class="o">:</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="sr">/\d+/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">num</span> <span class="o">*=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">10</span><span class="p">);</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">ago</span> <span class="o">=</span> <span class="nx">split</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;ago&#39;</span><span class="p">;</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="p">(</span><span class="nx">type</span> <span class="o">===</span> <span class="s1">&#39;last&#39;</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nx">ago</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="mi">1</span><span class="p">);</span>
 </span><span class='line'>
-</span><span class='line'>        <span class="k">switch</span> <span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">case</span> <span class="s1">&#39;yea&#39;</span><span class="o">:</span>
-</span><span class='line'>          <span class="nx">now</span><span class="p">.</span><span class="nx">setFullYear</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">()</span> <span class="o">+</span> <span class="nx">num</span><span class="p">);</span>
-</span><span class='line'>          <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">case</span> <span class="s1">&#39;mon&#39;</span><span class="o">:</span>
-</span><span class='line'>          <span class="nx">now</span><span class="p">.</span><span class="nx">setMonth</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span> <span class="o">+</span> <span class="nx">num</span><span class="p">);</span>
-</span><span class='line'>          <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">case</span> <span class="s1">&#39;wee&#39;</span><span class="o">:</span>
-</span><span class='line'>          <span class="nx">now</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">+</span> <span class="p">(</span><span class="nx">num</span> <span class="o">*</span> <span class="mi">7</span><span class="p">));</span>
-</span><span class='line'>          <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">case</span> <span class="s1">&#39;day&#39;</span><span class="o">:</span>
-</span><span class='line'>          <span class="nx">now</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">+</span> <span class="nx">num</span><span class="p">);</span>
-</span><span class='line'>          <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">case</span> <span class="s1">&#39;hou&#39;</span><span class="o">:</span>
-</span><span class='line'>          <span class="nx">now</span><span class="p">.</span><span class="nx">setHours</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getHours</span><span class="p">()</span> <span class="o">+</span> <span class="nx">num</span><span class="p">);</span>
-</span><span class='line'>          <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">case</span> <span class="s1">&#39;min&#39;</span><span class="o">:</span>
-</span><span class='line'>          <span class="nx">now</span><span class="p">.</span><span class="nx">setMinutes</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">()</span> <span class="o">+</span> <span class="nx">num</span><span class="p">);</span>
-</span><span class='line'>          <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">case</span> <span class="s1">&#39;sec&#39;</span><span class="o">:</span>
-</span><span class='line'>          <span class="nx">now</span><span class="p">.</span><span class="nx">setSeconds</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getSeconds</span><span class="p">()</span> <span class="o">+</span> <span class="nx">num</span><span class="p">);</span>
-</span><span class='line'>          <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>      <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-</span><span class='line'>  <span class="p">};</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">typeIsNumber</span><span class="p">)</span>
+</span><span class='line'>          <span class="nx">num</span> <span class="o">*=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="nx">match</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^(\d{2,4}-\d{2}-\d{2})(?:\s(\d{1,2}:\d{2}(:\d{2})?)?(?:\.(\d+))?)?$/</span><span class="p">);</span>
-</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">match</span> <span class="o">!==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">match</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="p">{</span>
-</span><span class='line'>      <span class="nx">match</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;00:00:00&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">match</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="p">{</span>
-</span><span class='line'>      <span class="nx">match</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="s1">&#39;:00&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">ranges</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">range</span><span class="p">))</span>
+</span><span class='line'>          <span class="k">return</span> <span class="nx">date</span><span class="p">[</span><span class="s1">&#39;set&#39;</span> <span class="o">+</span> <span class="nx">ranges</span><span class="p">[</span><span class="nx">range</span><span class="p">]](</span><span class="nx">date</span><span class="p">[</span><span class="s1">&#39;get&#39;</span> <span class="o">+</span> <span class="nx">ranges</span><span class="p">[</span><span class="nx">range</span><span class="p">]]()</span> <span class="o">+</span> <span class="nx">num</span><span class="p">);</span>
+</span><span class='line'>      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">range</span> <span class="o">===</span> <span class="s1">&#39;wee&#39;</span><span class="p">)</span>
+</span><span class='line'>          <span class="k">return</span> <span class="nx">date</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="nx">date</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">+</span> <span class="p">(</span><span class="nx">num</span> <span class="o">*</span> <span class="mi">7</span><span class="p">));</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="nx">s</span> <span class="o">=</span> <span class="nx">match</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="sr">/-/g</span><span class="p">);</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">type</span> <span class="o">===</span> <span class="s1">&#39;next&#39;</span> <span class="o">||</span> <span class="nx">type</span> <span class="o">===</span> <span class="s1">&#39;last&#39;</span><span class="p">)</span>
+</span><span class='line'>          <span class="nx">lastNext</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">range</span><span class="p">,</span> <span class="nx">num</span><span class="p">);</span>
+</span><span class='line'>      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">typeIsNumber</span><span class="p">)</span>
+</span><span class='line'>          <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">__is</span><span class="p">.</span><span class="nx">mon</span><span class="p">[</span><span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">||</span> <span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-</span><span class='line'>    <span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">+</span><span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">69</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;20&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="o">?</span> <span class="s1">&#39;0&#39;</span> <span class="o">+</span> <span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">:</span> <span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">:</span> <span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">70</span> <span class="o">&amp;&amp;</span> <span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">99</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;19&#39;</span> <span class="o">+</span> <span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">:</span> <span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">return</span> <span class="nb">parseInt</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">strtotime</span><span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nx">match</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="nx">match</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">?</span> <span class="nx">match</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1000</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">),</span> <span class="mi">10</span><span class="p">);</span>
+</span><span class='line'>      <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
 </span><span class='line'>  <span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">regex</span> <span class="o">=</span> <span class="s1">&#39;([+-]?\\d+\\s&#39;</span> <span class="o">+</span> <span class="s1">&#39;(years?|months?|weeks?|days?|hours?|min|minutes?|sec|seconds?&#39;</span> <span class="o">+</span> <span class="s1">&#39;|sun\\.?|sunday|mon\\.?|monday|tue\\.?|tuesday|wed\\.?|wednesday&#39;</span> <span class="o">+</span> <span class="s1">&#39;|thu\\.?|thursday|fri\\.?|friday|sat\\.?|saturday)&#39;</span> <span class="o">+</span> <span class="s1">&#39;|(last|next)\\s&#39;</span> <span class="o">+</span> <span class="s1">&#39;(years?|months?|weeks?|days?|hours?|min|minutes?|sec|seconds?&#39;</span> <span class="o">+</span> <span class="s1">&#39;|sun\\.?|sunday|mon\\.?|monday|tue\\.?|tuesday|wed\\.?|wednesday&#39;</span> <span class="o">+</span> <span class="s1">&#39;|thu\\.?|thursday|fri\\.?|friday|sat\\.?|saturday))&#39;</span> <span class="o">+</span> <span class="s1">&#39;(\\sago)?&#39;</span><span class="p">;</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">regex</span> <span class="o">=</span> <span class="s1">&#39;([+-]?\\d+\\s&#39;</span> <span class="o">+</span>
+</span><span class='line'>      <span class="s1">&#39;(years?|months?|weeks?|days?|hours?|min|minutes?|sec|seconds?&#39;</span> <span class="o">+</span>
+</span><span class='line'>      <span class="s1">&#39;|sun\\.?|sunday|mon\\.?|monday|tue\\.?|tuesday|wed\\.?|wednesday&#39;</span> <span class="o">+</span>
+</span><span class='line'>      <span class="s1">&#39;|thu\\.?|thursday|fri\\.?|friday|sat\\.?|saturday)|(last|next)\\s&#39;</span> <span class="o">+</span>
+</span><span class='line'>      <span class="s1">&#39;(years?|months?|weeks?|days?|hours?|min|minutes?|sec|seconds?&#39;</span> <span class="o">+</span>
+</span><span class='line'>      <span class="s1">&#39;|sun\\.?|sunday|mon\\.?|monday|tue\\.?|tuesday|wed\\.?|wednesday&#39;</span> <span class="o">+</span>
+</span><span class='line'>      <span class="s1">&#39;|thu\\.?|thursday|fri\\.?|friday|sat\\.?|saturday))(\\sago)?&#39;</span><span class="p">;</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="nx">match</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">regex</span><span class="p">,</span> <span class="s1">&#39;gi&#39;</span><span class="p">));</span> <span class="c1">// Brett: seems should be case insensitive per docs, so added &#39;i&#39;</span>
-</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">match</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">l</span> <span class="o">=</span> <span class="nx">match</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">l</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">process</span><span class="p">(</span><span class="nx">match</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)))</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">match</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">regex</span><span class="p">,</span> <span class="s1">&#39;gi&#39;</span><span class="p">));</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">match</span><span class="p">)</span>
 </span><span class='line'>      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>  <span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="k">return</span> <span class="nx">now</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span> <span class="o">|</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">match</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">process</span><span class="p">(</span><span class="nx">match</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span>
+</span><span class='line'>          <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// ECMAScript 5 only</span>
+</span><span class='line'>  <span class="c1">//if (!match.every(process))</span>
+</span><span class='line'>  <span class="c1">// return false;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">return</span> <span class="p">(</span><span class="nx">date</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">);</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 

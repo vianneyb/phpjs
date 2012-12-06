@@ -47,7 +47,10 @@
 </head>
 
 <body   class="no-sidebar"  >
-  <header role="banner"><hgroup>
+  <header role="banner"><a href="https://github.com/kvz/phpjs">
+  <img id="fork-us" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub">
+</a>
+<hgroup>
   <div id="logo">
   	<div id="logoLeft">{</div>
   	<div id="logoText">php</div>
@@ -56,7 +59,7 @@
   </div>
   <h1><a href="/">.js</a></h1>
   
-    <h2>A resource of php functions in JavsScript</h2>
+    <h2>A resource of php functions in JavaScript</h2>
   
   <div class="clear"></div>
 </hgroup>
@@ -135,6 +138,12 @@
 <span class='line-number'>32</span>
 <span class='line-number'>33</span>
 <span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
 </pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">array_change_key_case</span> <span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">cs</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>  <span class="c1">// http://kevin.vanzonneveld.net</span>
 </span><span class='line'>  <span class="c1">// +   original by: Ates Goral (http://magnetiq.com)</span>
@@ -152,6 +161,12 @@
 </span><span class='line'>  <span class="c1">// *     returns 5: {&quot;FUBAR&quot;: 42}</span>
 </span><span class='line'>  <span class="c1">// *     example 6: array_change_key_case({ FuBaR: 42 }, 2);</span>
 </span><span class='line'>  <span class="c1">// *     returns 6: {&quot;FUBAR&quot;: 42}</span>
+</span><span class='line'>  <span class="c1">// *     example 7: ini_set(&#39;phpjs.return_phpjs_arrays&#39;, &#39;on&#39;);</span>
+</span><span class='line'>  <span class="c1">// *     example 7: var arr = array({a: 0}, {B: 1}, {c: 2});</span>
+</span><span class='line'>  <span class="c1">// *     example 7: var newArr = array_change_key_case(arr);</span>
+</span><span class='line'>  <span class="c1">// *     example 7: newArr.b</span>
+</span><span class='line'>  <span class="c1">// *     example 7: 1</span>
+</span><span class='line'>
 </span><span class='line'>  <span class="kd">var</span> <span class="nx">case_fn</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">tmp_ar</span> <span class="o">=</span> <span class="p">{};</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="o">===</span> <span class="s1">&#39;[object Array]&#39;</span><span class="p">)</span> <span class="p">{</span>

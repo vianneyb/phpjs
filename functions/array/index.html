@@ -65,7 +65,10 @@
 </head>
 
 <body   class="no-sidebar"  >
-  <header role="banner"><hgroup>
+  <header role="banner"><a href="https://github.com/kvz/phpjs">
+  <img id="fork-us" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub">
+</a>
+<hgroup>
   <div id="logo">
   	<div id="logoLeft">{</div>
   	<div id="logoText">php</div>
@@ -74,7 +77,7 @@
   </div>
   <h1><a href="/">.js</a></h1>
   
-    <h2>A resource of php functions in JavsScript</h2>
+    <h2>A resource of php functions in JavaScript</h2>
   
   <div class="clear"></div>
 </hgroup>
@@ -403,6 +406,25 @@
 <span class='line-number'>282</span>
 <span class='line-number'>283</span>
 <span class='line-number'>284</span>
+<span class='line-number'>285</span>
+<span class='line-number'>286</span>
+<span class='line-number'>287</span>
+<span class='line-number'>288</span>
+<span class='line-number'>289</span>
+<span class='line-number'>290</span>
+<span class='line-number'>291</span>
+<span class='line-number'>292</span>
+<span class='line-number'>293</span>
+<span class='line-number'>294</span>
+<span class='line-number'>295</span>
+<span class='line-number'>296</span>
+<span class='line-number'>297</span>
+<span class='line-number'>298</span>
+<span class='line-number'>299</span>
+<span class='line-number'>300</span>
+<span class='line-number'>301</span>
+<span class='line-number'>302</span>
+<span class='line-number'>303</span>
 </pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">array</span> <span class="p">()</span> <span class="p">{</span>
 </span><span class='line'>  <span class="c1">// http://kevin.vanzonneveld.net</span>
 </span><span class='line'>  <span class="c1">// +   original by: d3x</span>
@@ -505,11 +527,30 @@
 </span><span class='line'>        <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">kl</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>          <span class="nx">oldkey</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">keys</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
 </span><span class='line'>          <span class="nx">newkey</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">keys</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">keys</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">case_fn</span><span class="p">]();</span>
-</span><span class='line'>          <span class="k">this</span><span class="p">[</span><span class="nx">newkey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">object</span><span class="p">[</span><span class="nx">newkey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">objectChain</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">newkey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">values</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span> <span class="c1">// Fix: should we make a deep copy?</span>
-</span><span class='line'>          <span class="k">this</span><span class="p">[</span><span class="nx">oldkey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">object</span><span class="p">[</span><span class="nx">oldkey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">objectChain</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">oldkey</span><span class="p">]</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span> <span class="c1">// Break reference before deleting</span>
-</span><span class='line'>          <span class="k">delete</span> <span class="k">this</span><span class="p">[</span><span class="nx">oldkey</span><span class="p">];</span>
-</span><span class='line'>          <span class="k">delete</span> <span class="nx">_</span><span class="p">.</span><span class="nx">object</span><span class="p">[</span><span class="nx">oldkey</span><span class="p">];</span>
-</span><span class='line'>          <span class="k">delete</span> <span class="nx">_</span><span class="p">.</span><span class="nx">objectChain</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">oldkey</span><span class="p">];</span>
+</span><span class='line'>          <span class="k">if</span> <span class="p">(</span><span class="nx">oldkey</span> <span class="o">!==</span> <span class="nx">newkey</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>              <span class="k">this</span><span class="p">[</span><span class="nx">oldkey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">object</span><span class="p">[</span><span class="nx">oldkey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">objectChain</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">oldkey</span><span class="p">]</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span> <span class="c1">// Break reference before deleting</span>
+</span><span class='line'>              <span class="k">delete</span> <span class="k">this</span><span class="p">[</span><span class="nx">oldkey</span><span class="p">];</span>
+</span><span class='line'>              <span class="k">delete</span> <span class="nx">_</span><span class="p">.</span><span class="nx">object</span><span class="p">[</span><span class="nx">oldkey</span><span class="p">];</span>
+</span><span class='line'>              <span class="k">delete</span> <span class="nx">_</span><span class="p">.</span><span class="nx">objectChain</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">oldkey</span><span class="p">];</span>
+</span><span class='line'>              <span class="k">this</span><span class="p">[</span><span class="nx">newkey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">object</span><span class="p">[</span><span class="nx">newkey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">objectChain</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">newkey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">values</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span> <span class="c1">// Fix: should we make a deep copy?</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>          <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">};</span>
+</span><span class='line'>      <span class="nx">e</span><span class="p">.</span><span class="nx">flip</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">__</span><span class="p">.</span><span class="nx">method</span><span class="p">(</span><span class="k">this</span><span class="p">),</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">kl</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">keys</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">kl</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nx">oldkey</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">keys</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span><span class='line'>          <span class="nx">newkey</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">values</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span><span class='line'>          <span class="k">if</span> <span class="p">(</span><span class="nx">oldkey</span> <span class="o">!==</span> <span class="nx">newkey</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">this</span><span class="p">[</span><span class="nx">oldkey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">object</span><span class="p">[</span><span class="nx">oldkey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">objectChain</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">oldkey</span><span class="p">]</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span> <span class="c1">// Break reference before deleting</span>
+</span><span class='line'>            <span class="k">delete</span> <span class="k">this</span><span class="p">[</span><span class="nx">oldkey</span><span class="p">];</span>
+</span><span class='line'>            <span class="k">delete</span> <span class="nx">_</span><span class="p">.</span><span class="nx">object</span><span class="p">[</span><span class="nx">oldkey</span><span class="p">];</span>
+</span><span class='line'>            <span class="k">delete</span> <span class="nx">_</span><span class="p">.</span><span class="nx">objectChain</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">oldkey</span><span class="p">];</span>
+</span><span class='line'>            <span class="k">this</span><span class="p">[</span><span class="nx">newkey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">object</span><span class="p">[</span><span class="nx">newkey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">objectChain</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">newkey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">oldkey</span><span class="p">;</span>
+</span><span class='line'>            <span class="nx">_</span><span class="p">.</span><span class="nx">keys</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">newkey</span><span class="p">;</span>
+</span><span class='line'>          <span class="p">}</span>
 </span><span class='line'>          <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
 </span><span class='line'>        <span class="p">}</span>
 </span><span class='line'>        <span class="k">return</span> <span class="k">this</span><span class="p">;</span>

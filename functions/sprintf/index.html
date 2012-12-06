@@ -62,7 +62,10 @@
 </head>
 
 <body   class="no-sidebar"  >
-  <header role="banner"><hgroup>
+  <header role="banner"><a href="https://github.com/kvz/phpjs">
+  <img id="fork-us" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub">
+</a>
+<hgroup>
   <div id="logo">
   	<div id="logoLeft">{</div>
   	<div id="logoText">php</div>
@@ -71,7 +74,7 @@
   </div>
   <h1><a href="/">.js</a></h1>
   
-    <h2>A resource of php functions in JavsScript</h2>
+    <h2>A resource of php functions in JavaScript</h2>
   
   <div class="clear"></div>
 </hgroup>
@@ -298,6 +301,10 @@
 <span class='line-number'>180</span>
 <span class='line-number'>181</span>
 <span class='line-number'>182</span>
+<span class='line-number'>183</span>
+<span class='line-number'>184</span>
+<span class='line-number'>185</span>
+<span class='line-number'>186</span>
 </pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">sprintf</span> <span class="p">()</span> <span class="p">{</span>
 </span><span class='line'>  <span class="c1">// http://kevin.vanzonneveld.net</span>
 </span><span class='line'>  <span class="c1">// +   original by: Ash Searle (http://hexmen.com/blog/)</span>
@@ -309,12 +316,15 @@
 </span><span class='line'>  <span class="c1">// +      input by: Brett Zamir (http://brett-zamir.me)</span>
 </span><span class='line'>  <span class="c1">// +   improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)</span>
 </span><span class='line'>  <span class="c1">// +   improved by: Dj</span>
+</span><span class='line'>  <span class="c1">// +   improved by: Allidylls</span>
 </span><span class='line'>  <span class="c1">// *     example 1: sprintf(&quot;%01.2f&quot;, 123.1);</span>
 </span><span class='line'>  <span class="c1">// *     returns 1: 123.10</span>
 </span><span class='line'>  <span class="c1">// *     example 2: sprintf(&quot;[%10s]&quot;, &#39;monkey&#39;);</span>
 </span><span class='line'>  <span class="c1">// *     returns 2: &#39;[    monkey]&#39;</span>
 </span><span class='line'>  <span class="c1">// *     example 3: sprintf(&quot;[%&#39;#10s]&quot;, &#39;monkey&#39;);</span>
 </span><span class='line'>  <span class="c1">// *     returns 3: &#39;[####monkey]&#39;</span>
+</span><span class='line'>  <span class="c1">// *     example 4: sprintf(&quot;%d&quot;, 123456789012345);</span>
+</span><span class='line'>  <span class="c1">// *     returns 4: &#39;123456789012345&#39;</span>
 </span><span class='line'>  <span class="kd">var</span> <span class="nx">regex</span> <span class="o">=</span> <span class="sr">/%%|%(\d+\$)?([-+\&#39;#0 ]*)(\*\d+\$|\*|\d+)?(\.(\*\d+\$|\*|\d+))?([scboxXuideEfFgG])/g</span><span class="p">;</span>
 </span><span class='line'>  <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">,</span>
 </span><span class='line'>    <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
@@ -457,7 +467,8 @@
 </span><span class='line'>      <span class="k">return</span> <span class="nx">formatBaseX</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">prefixBaseX</span><span class="p">,</span> <span class="nx">leftJustify</span><span class="p">,</span> <span class="nx">minWidth</span><span class="p">,</span> <span class="nx">precision</span><span class="p">,</span> <span class="nx">zeroPad</span><span class="p">);</span>
 </span><span class='line'>    <span class="k">case</span> <span class="s1">&#39;i&#39;</span><span class="o">:</span>
 </span><span class='line'>    <span class="k">case</span> <span class="s1">&#39;d&#39;</span><span class="o">:</span>
-</span><span class='line'>      <span class="nx">number</span> <span class="o">=</span> <span class="p">(</span><span class="o">+</span><span class="nx">value</span><span class="p">)</span> <span class="o">|</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>      <span class="nx">number</span> <span class="o">=</span> <span class="o">+</span><span class="nx">value</span> <span class="o">||</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>      <span class="nx">number</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">number</span> <span class="o">-</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// Plain Math.round doesn&#39;t just truncate</span>
 </span><span class='line'>      <span class="nx">prefix</span> <span class="o">=</span> <span class="nx">number</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="s1">&#39;-&#39;</span> <span class="o">:</span> <span class="nx">positivePrefix</span><span class="p">;</span>
 </span><span class='line'>      <span class="nx">value</span> <span class="o">=</span> <span class="nx">prefix</span> <span class="o">+</span> <span class="nx">pad</span><span class="p">(</span><span class="nb">String</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">number</span><span class="p">)),</span> <span class="nx">precision</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 </span><span class='line'>      <span class="k">return</span> <span class="nx">justify</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">prefix</span><span class="p">,</span> <span class="nx">leftJustify</span><span class="p">,</span> <span class="nx">minWidth</span><span class="p">,</span> <span class="nx">zeroPad</span><span class="p">);</span>

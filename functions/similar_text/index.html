@@ -57,7 +57,10 @@
 </head>
 
 <body   class="no-sidebar"  >
-  <header role="banner"><hgroup>
+  <header role="banner"><a href="https://github.com/kvz/phpjs">
+  <img id="fork-us" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub">
+</a>
+<hgroup>
   <div id="logo">
   	<div id="logoLeft">{</div>
   	<div id="logoText">php</div>
@@ -66,7 +69,7 @@
   </div>
   <h1><a href="/">.js</a></h1>
   
-    <h2>A resource of php functions in JavsScript</h2>
+    <h2>A resource of php functions in JavaScript</h2>
   
   <div class="clear"></div>
 </hgroup>
@@ -161,14 +164,24 @@
 <span class='line-number'>48</span>
 <span class='line-number'>49</span>
 <span class='line-number'>50</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">similar_text</span> <span class="p">(</span><span class="nx">first</span><span class="p">,</span> <span class="nx">second</span><span class="p">)</span> <span class="p">{</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">similar_text</span> <span class="p">(</span><span class="nx">first</span><span class="p">,</span> <span class="nx">second</span><span class="p">,</span> <span class="nx">percent</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>  <span class="c1">// http://kevin.vanzonneveld.net</span>
 </span><span class='line'>  <span class="c1">// +   original by: Rafał Kukawski (http://blog.kukawski.pl)</span>
 </span><span class='line'>  <span class="c1">// +   bugfixed by: Chris McMacken</span>
+</span><span class='line'>  <span class="c1">// +   added percent parameter by: Markus Padourek (taken from http://www.kevinhq.com/2012/06/php-similartext-function-in-javascript_16.html)</span>
 </span><span class='line'>  <span class="c1">// *     example 1: similar_text(&#39;Hello World!&#39;, &#39;Hello phpjs!&#39;);</span>
 </span><span class='line'>  <span class="c1">// *     returns 1: 7</span>
 </span><span class='line'>  <span class="c1">// *     example 2: similar_text(&#39;Hello World!&#39;, null);</span>
 </span><span class='line'>  <span class="c1">// *     returns 2: 0</span>
+</span><span class='line'>  <span class="c1">// *     example 3: similar_text(&#39;Hello World!&#39;, null, 1);</span>
+</span><span class='line'>  <span class="c1">// *     returns 3: 58.33</span>
 </span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">first</span> <span class="o">===</span> <span class="kc">null</span> <span class="o">||</span> <span class="nx">second</span> <span class="o">===</span> <span class="kc">null</span> <span class="o">||</span> <span class="k">typeof</span> <span class="nx">first</span> <span class="o">===</span> <span class="s1">&#39;undefined&#39;</span> <span class="o">||</span> <span class="k">typeof</span> <span class="nx">second</span> <span class="o">===</span> <span class="s1">&#39;undefined&#39;</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span><span class='line'>  <span class="p">}</span>
@@ -209,7 +222,11 @@
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'>  <span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="k">return</span> <span class="nx">sum</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">percent</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nx">sum</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="p">(</span><span class="nx">sum</span> <span class="o">*</span> <span class="mi">200</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nx">firstLength</span> <span class="o">+</span> <span class="nx">secondLength</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -253,6 +270,24 @@
 <figure class='code'><figcaption><span>returns </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='js'><span class='line'><span class="mi">0</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Example 3</h3>
+
+<p>This code</p>
+
+<figure class='code'><figcaption><span>example </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">similar_text</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Should return</p>
+
+<figure class='code'><figcaption><span>returns </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="mf">58.33</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
